@@ -1,0 +1,30 @@
+{
+    "name": "WhoAmI",
+    "version": "1.1",
+    "description": "Change your profile by visiting random sites",
+    "permissions": ["activeTab","storage","tabs","history","http://*/",
+    "https://*/"],
+    "background": {
+      "scripts": ["background.js"]
+    },
+    "browser_action": {},
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+   "icons": {
+      "16": "images/profiling16.png",
+      "32": "images/profiling32.png",
+      "48": "images/profiling48.png",
+      "128": "images/profiling128.png"
+    },
+    "manifest_version": 2
+  }
