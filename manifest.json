@@ -1,6 +1,6 @@
 {
     "name": "WhoAmI",
-    "version": "1.1",
+    "version": "1.0",
     "description": "Change your profile by visiting random sites",
     "permissions": ["activeTab","storage","tabs","history","http://*/",
     "https://*/"],

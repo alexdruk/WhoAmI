@@ -1,0 +1,89 @@
+body {
+    background-color: #eee;
+    font-family: arial,sans-serif;
+    font-size: 13px;
+}
+#content {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 3px auto 3px;
+    padding: 18px;
+    width: 350px;
+}
+h1 {
+    color: #333333;
+    font-size: 1.2em;
+    margin: 0.7em 0;
+    text-align: center;
+}
+.option_row {
+    display: table-row;
+}
+.option_name {
+    display: table-cell;
+    font-weight: bold;
+    margin-top: 1px;
+    margin-bottom: 3px;
+    padding-right: 16px;
+    padding-top: 5px;
+    white-space: nowrap;
+}
+.option_picker {
+    display: table-cell;
+}
+.nobull {
+    list-style-type: none;
+} 
+.buttons {
+    clear: left;
+    padding: 2em 0 0.7em;
+}
+.buttons .button {
+    display: inline-block;
+}
+.button-action {
+    box-shadow: none;
+    background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
+    background-color: #4d90fe;
+    border: 1px solid #3079ed;
+    color: #fff;
+}
+.button {
+    margin: auto;
+    border-radius: 2px;
+    cursor: default;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    margin-right: 16px;
+    height: 27px;
+    line-height: 27px;
+    min-width: 54px;
+    outline: 0px;
+    padding: 0 8px;
+}
+.button-standard {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background-color: #f5f5f5;
+    background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+    color: #444;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.status {
+    color: red;
+}
+.tarea {
+    display: table-row;
+    border: 1px inset #ccc;
+    background-color: white;
+    font: small courier, monospace black;
+    /*
+    width: 500px;
+    height: 300px; 
+    */
+    overflow: auto; 
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html><head>
+    <title id="options-page-title">Screw Profiling Options</title>
+     <link rel="stylesheet" type="text/css" href="options.css">
+  </head>
+  <body>
+    <div id="content">
+       <h1>
+          <img src="./images/profiling48.png">
+          <div id="options-title-heading">I'm pretending to be...</div>
+      </h1>
+      <div class="option_row">
+        <div id="political-option" class="option_name">Political affiliation:</div>
+        <div id="political" class="option_picker">
+         <div>
+            <ul class="nobull">
+            <li>
+            <input type="radio" id="democrat" name="pol" value="democrat">
+            <label for="democrat">Democrat</label>
+            </li>
+            <li>
+            <input type="radio" id="republican" name="pol" value="republican">
+            <label for="republican">Republican</label>
+            </li>
+            <li>
+            <input type="radio" id="monarchist" name="pol" value="monarchist">
+            <label for="monarchist">Monarchist</label>
+            </li>
+            <li>
+            <input type="radio" id="anarchist" name="pol" value="anarchist">
+            <label for="anarchist">Anarchist</label>
+            </li>
+            </ul>   
+         </div>
+        </div>
+      </div>
+      <div class="option_row">
+            <div id="sexual-option" class="option_name">Sexual:</div>
+            <div id="sexual" class="option_picker">
+             <div>
+                <ul class="nobull">
+                <li>
+                <input type="radio" id="lesbian" name="sex" value="lesbian">
+                <label for="lesbian">Lesbian</label>
+                </li>
+                <li>
+                <input type="radio" id="gay" name="sex" value="gay">
+                <label for="gay">Gay</label>
+                </li>
+                <li>
+                <input type="radio" id="third" name="sex" value="third">
+                <label for="third">Third gender</label>
+                </li>
+                </ul>   
+             </div>
+            </div>
+        </div>
+        <div>
+                <label for="tarea" class="option_name">Enter any additional URLs to visit:<br>
+                    <span style="font-size: smaller !important;font-weight: normal;">(one URL per line, each should be a valid  URL)</span>:
+                </label>
+                <textarea class="tarea" cols="45" rows="10" id="tarea" placeholder="https://www.google.com"></textarea>
+        </div>
+                <div id="status" class="status"></div>
+        <div class="buttons">
+            <button id="save" class="button-action button" role="button" style="user-select: none;" tabindex="0">Save</button>
+            <button id="reset" class="button-standard button" role="button" tabindex="0" style="user-select: none;">Reset</button>
+        </div>
+
+    </div> <!-- end of content div -->
+    <script src="options.js"></script>
+</body></html>
