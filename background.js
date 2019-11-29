@@ -135,10 +135,8 @@ function conbineUrls() {
   if (localStorage["additional"]) {
     //convert string to array
     let additionalUrs = localStorage["additional"].split("\n");
-    console.log("temparr", additionalUrs);
     urls.push.apply(urls, additionalUrs);
   }
-  console.log("urls len:", urls.length);
 }
 
 function chromeTabsCreateAsync(createProperties) {
@@ -162,7 +160,7 @@ function chromeTabsUpdateAsync(tabid, createProperties) {
         );
         reject(new Error(chrome.runtime.lastError));
       } else {
-        console.log("updated", tabid, " with url ", createProperties.url);
+        // console.log("updated", tabid, " with url ", createProperties.url);
         resolve(tab);
       }
     });
@@ -170,7 +168,6 @@ function chromeTabsUpdateAsync(tabid, createProperties) {
 }
 
 function waitfor(ms) {
-  console.log("going to sleep for", ms, "ms");
   return new Promise(res => setInterval(res, ms));
 }
 
@@ -200,7 +197,6 @@ function injectScript(tabId) {
           }
         }
         urls.push.apply(urls, productUrls);
-        console.log("products urls added:", productUrls.length);
       }
     }
   );
@@ -216,7 +212,6 @@ async function main() {
       chrome.tabs.sendMessage(activeTab.id, {
         message: "clicked_browser_action"
       });
-      console.log("first mesage sent");
     });
   });
 
@@ -231,10 +226,10 @@ async function main() {
         url: request.url,
         active: false
       });
-      console.log("Tab created: ", tab.id, "url", request.url, new Date());
+      // console.log("Tab created: ", tab.id, "url", request.url, new Date());
       await waitfor(10000);
       chrome.tabs.get(tab.id, function(tab) {
-        console.log("id", tab.id, "status", tab.status, "url", tab.url);
+        // console.log("id", tab.id, "status", tab.status, "url", tab.url);
         if (tab.status === "complete") {
           injectScript(tab.id);
         }
@@ -243,7 +238,6 @@ async function main() {
 
       console.log("urls", urls.length);
       for (let index = 0; index < 100; index++) {
-        console.log("doing loop...");
         let random2 = getRandomInt(urls.length, 0);
         try {
           await chromeTabsUpdateAsync(tab.id, { url: urls[random2] });
@@ -251,13 +245,13 @@ async function main() {
           console.log("er:", e, "exiting...");
           return;
         }
-        console.log(
-          "Tab updated: ",
-          tab.id,
-          "new url",
-          urls[random2],
-          new Date()
-        );
+        // console.log(
+        //   "Tab updated: ",
+        //   tab.id,
+        //   "new url",
+        //   urls[random2],
+        //   new Date()
+        // );
         /* this code seems not working
         let newUrl = urls[random2];
         chrome.history.deleteUrl({ url: newUrl });

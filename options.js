@@ -5,18 +5,15 @@ function saveOptions() {
   let ttext = document.getElementById("tarea");
   if (selector1) {
     localStorage["political"] = selector1.value;
-    console.log("saved value:", localStorage["political"]);
   }
   if (selector2) {
     localStorage["sexual"] = selector2.value;
-    console.log("saved value:", localStorage["sexual"]);
   }
   if (trimfield(ttext.value).length != 0) {
     if (!validate(trimfield(ttext.value))) {
       showStatus("Each line should be correct URL!");
       return;
     }
-    console.log("saved value:", trimfield(ttext.value));
     localStorage["additional"] = trimfield(ttext.value);
   }
   if (selector1 || selector2 || trimfield(ttext.value).length != 0) {
@@ -26,7 +23,6 @@ function saveOptions() {
 
 // Update status to let user know options were saved.
 function showStatus(str) {
-  console.log("show status");
   let status = document.getElementById("status");
   status.textContent = str;
   setTimeout(function() {
@@ -50,7 +46,6 @@ function loadOptions() {
   }
   if (additional) {
     let ttext = document.getElementById("tarea");
-    console.log("retrived from storage:", additional);
     ttext.value = additional;
   }
 }
