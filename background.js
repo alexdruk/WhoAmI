@@ -114,6 +114,13 @@ function conbineUrls() {
   if (localStorage["political"] === "anarchist") {
     urls.push.apply(urls, anarchistUrls);
   }
+  if (localStorage["political"] === "pol_all") {
+    urls.push.apply(urls, democratUrls);
+    urls.push.apply(urls, republicanUrls);
+    urls.push.apply(urls, monarchistUrls);
+    urls.push.apply(urls, anarchistUrls);
+  }
+
   if (localStorage["sexual"] === "lesbian") {
     urls.push.apply(urls, lesbianUrls);
   }
@@ -123,11 +130,7 @@ function conbineUrls() {
   if (localStorage["sexual"] === "third") {
     urls.push.apply(urls, thirdUrls);
   }
-  if (localStorage["political"] == null && localStorage["sexual"] == null) {
-    urls.push.apply(urls, democratUrls);
-    urls.push.apply(urls, republicanUrls);
-    urls.push.apply(urls, monarchistUrls);
-    urls.push.apply(urls, anarchistUrls);
+  if (localStorage["sexual"] === "sex_all") {
     urls.push.apply(urls, lesbianUrls);
     urls.push.apply(urls, gayUrls);
     urls.push.apply(urls, thirdUrls);
@@ -226,10 +229,10 @@ async function main() {
         url: request.url,
         active: false
       });
-      // console.log("Tab created: ", tab.id, "url", request.url, new Date());
+      console.log("Tab created: ", tab.id, "url", request.url, new Date());
       await waitfor(10000);
       chrome.tabs.get(tab.id, function(tab) {
-        // console.log("id", tab.id, "status", tab.status, "url", tab.url);
+        console.log("id", tab.id, "status", tab.status, "url", tab.url);
         if (tab.status === "complete") {
           injectScript(tab.id);
         }
