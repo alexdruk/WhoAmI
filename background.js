@@ -223,29 +223,29 @@ async function main() {
     sender,
     sendResponse
   ) {
-    console.log("message recieved", request.message);
+    // console.log("message recieved", request.message);
     if (request.message === "open_new_tab") {
       let tab = await chromeTabsCreateAsync({
         url: request.url,
         active: false
       });
-      console.log("Tab created: ", tab.id, "url", request.url, new Date());
+      // console.log("Tab created: ", tab.id, "url", request.url, new Date());
       await waitfor(10000);
       chrome.tabs.get(tab.id, function(tab) {
-        console.log("id", tab.id, "status", tab.status, "url", tab.url);
+        // console.log("id", tab.id, "status", tab.status, "url", tab.url);
         if (tab.status === "complete") {
           injectScript(tab.id);
         }
       });
       await waitfor(3000);
 
-      console.log("urls", urls.length);
+      // console.log("urls", urls.length);
       for (let index = 0; index < 100; index++) {
         let random2 = getRandomInt(urls.length, 0);
         try {
           await chromeTabsUpdateAsync(tab.id, { url: urls[random2] });
         } catch (e) {
-          console.log("er:", e, "exiting...");
+          // console.log("er:", e, "exiting...");
           return;
         }
         // console.log(
